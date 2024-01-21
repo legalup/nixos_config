@@ -17,7 +17,7 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "macondo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -114,14 +114,17 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     wget
-    emacs
+    emacs-gtk
     terminator
     git
+    python3
+    (python3.withPackages(ps: with ps; [ numpy pandas requests]))
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
