@@ -14,6 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+
+  # nix flakes enable
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
