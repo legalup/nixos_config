@@ -129,6 +129,9 @@
     git
     python3
     (python3.withPackages(ps: with ps; [ numpy pandas requests ipython]))
+    adoptopenjdk-icedtea-web #package for javaws
+    openjdk17
+    vscode
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
