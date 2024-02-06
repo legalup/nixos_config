@@ -50,17 +50,26 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
+
+services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+    displayManager.defaultSession = "xfce";
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  #services.xserver.desktopManager.plasma5.enable = true;
 
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    plasma-browser-integration
-    konsole
-    oxygen
-  ];
+  #environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+  #  plasma-browser-integration
+  #  konsole
+  #  oxygen
+  #];
 
   qt = {
      enable = true;
@@ -124,7 +133,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    emacs-gtk
+    #emacs-gtk
     terminator
     git
     python3
@@ -132,15 +141,25 @@
     adoptopenjdk-icedtea-web #package for javaws
     openjdk17
     vscode
+    geeqie
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
+  programs = {
+  	   gnupg.agent = {
+  	   enable = true;
+  	   enableSSHSupport = true;
+  	   };
+
+	   bash.shellAliases = {
+	   l = "ls -alh";
+	   ll = "ls -l";
+	   ls = "ls --color=tty";
+	   cmaked = "cmake -DCMAKE_BUILD_TYPE=Debug";
+	   };
+  };
 
   # List services that you want to enable:
 
