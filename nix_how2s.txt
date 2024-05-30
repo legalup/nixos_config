@@ -1,0 +1,8 @@
+how to nix
+
+nix profile list
+nix profile install xclock
+nix profile install nixpkgs/269ce7215bb5b436546786e8d354d37903e102a8#xorg.xclock
+
+there is a bookmark where to see all the packages you can install on nix:
+nixhub.io
