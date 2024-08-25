@@ -13,6 +13,7 @@ just type in "flameshot", and you are good to go
 
 
 // how to edit configuration.nix
+//check this out: https://nixos.org/manual/nixos/stable/index.html#sec-changing-config
 first, you can change this file
 /etc/nixos/configuration.nix
 then, to test, you do a
@@ -23,3 +24,12 @@ sudo nixos-rebuild switch
 //you know that annoy message about experimental features?
 //this command gives  you what you want
 nix --extra-experimental-features nix-command --extra-experimental-features flakes profile install nixpkgs/0cb2fd7c59fed0cd82ef858cbcbdb552b9a33465#emacs
+
+//how i enabled printing
+services.printing.drivers = [ YOUR_DRIVER ];
+
+where YOUR_DRIVER is the driver package appropriate for your printer. the one i used is:
+    pkgs.hplip — Drivers for HP printers.
+    pkgs.hplipWithPlugin — Drivers for HP printers, with the proprietary plugin. Use NIXPKGS_ALLOW_UNFREE=1 nix-shell -p hplipWithPlugin --run 'sudo -E hp-setup' to add the printer, regular CUPS UI doesn't seem to work.
+
+and yes, i had to do hp-setup

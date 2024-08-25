@@ -88,6 +88,13 @@ services.xserver = {
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.avahi = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.printing.drivers = [ pkgs.hplip pkgs.hplipWithPlugin ];
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -165,7 +172,8 @@ services.xserver = {
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # networking.firewall.enable = false;wd
+  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
