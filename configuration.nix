@@ -131,17 +131,12 @@ services.xserver = {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
     wget
-    #emacs-gtk
     terminator
-    git
     python3
     (python3.withPackages(ps: with ps; [ numpy pandas requests ipython]))
     adoptopenjdk-icedtea-web #package for javaws
     openjdk17
-    vscode
-    geeqie
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
