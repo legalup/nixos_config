@@ -18,6 +18,17 @@
   # nix flakes enable
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # optimizing the store
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "12:00" ]; # Optional; allows customizing optimisation schedule
+
+  #automating garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 10d";
+  };
+
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
