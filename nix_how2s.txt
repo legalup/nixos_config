@@ -33,3 +33,6 @@ where YOUR_DRIVER is the driver package appropriate for your printer. the one i 
     pkgs.hplipWithPlugin — Drivers for HP printers, with the proprietary plugin. Use NIXPKGS_ALLOW_UNFREE=1 nix-shell -p hplipWithPlugin --run 'sudo -E hp-setup' to add the printer, regular CUPS UI doesn't seem to work.
 
 and yes, i had to do hp-setup
+
+//how to install unfree packages. this actually worked for installing vscode
+NIXPKGS_ALLOW_UNFREE=1 nix profile install --impure nixpkgs/568bfef547c14ca438c56a0bece08b8bb2b71a9c#vscode
