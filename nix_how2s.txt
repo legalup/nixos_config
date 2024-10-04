@@ -36,3 +36,10 @@ and yes, i had to do hp-setup
 
 //how to install unfree packages. this actually worked for installing vscode
 NIXPKGS_ALLOW_UNFREE=1 nix profile install --impure nixpkgs/568bfef547c14ca438c56a0bece08b8bb2b71a9c#vscode
+
+//want to make your own script? note that the following is from looking
+//at the PATH env. now, it did not exist, but i made a symlink in
+//home/luis/.local/states/nix/profiles that this points to. it is
+//NOT a read only filesystem.
+// here is where i put my clean script:
+/home/luis/.local/state/nix/profile/bin/clean
